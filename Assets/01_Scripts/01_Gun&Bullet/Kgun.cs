@@ -8,7 +8,8 @@ public class Kgun : MonoBehaviour
 {
     [SerializeField]
     Transform bulletPos;
-
+    [SerializeField]
+    SpriteRenderer spriteRenderer;
     //ÃÑ ¹æÇâ
     float angle;
     Vector2 target, mouse;
@@ -49,6 +50,16 @@ public class Kgun : MonoBehaviour
         angle = Mathf.Atan2(mouse.y - target.y, mouse.x - target.x) * Mathf.Rad2Deg;
         // Set the rotation of the current object to the calculated angle
         this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        //ÁÂ¿ì ¹ÝÀü
+        if (angle > 90 || angle < -90)
+        {
+            spriteRenderer.flipY = true;
+        }
+        else
+        {
+            spriteRenderer.flipY = false;
+        }
     }
     
 }

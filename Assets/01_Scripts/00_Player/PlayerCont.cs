@@ -7,7 +7,7 @@ public class PlayerCont : MonoBehaviour//벡터입력으로 움직임
     [SerializeField]
     Vector2 inputVec;
     [SerializeField]
-    float speed = 7;
+    float playerSpeed = 7;
 
     [SerializeField]
     Rigidbody2D rigid;   
@@ -23,8 +23,17 @@ public class PlayerCont : MonoBehaviour//벡터입력으로 움직임
     
     void FixedUpdate()
     {
-        Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
+        Vector2 nextVec = inputVec.normalized * playerSpeed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
+    }
+
+    public void Roll()
+    {
+        playerSpeed = 10;
+    }
+    public void NotRoll()
+    {
+        playerSpeed = 7;
     }
 }
     
