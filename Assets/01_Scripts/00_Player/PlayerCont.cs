@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerCont : MonoBehaviour//벡터입력으로 움직임
 {
     [SerializeField]
-    Vector2 inputVec;
+    public Vector2 inputVec;
     [SerializeField]
-    float playerSpeed = 7;
+    public float playerSpeed = 7;
 
     [SerializeField]
     Rigidbody2D rigid;   

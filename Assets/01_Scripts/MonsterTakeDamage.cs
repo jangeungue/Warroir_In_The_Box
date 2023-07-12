@@ -20,7 +20,7 @@ public class MonsterTakeDamage : MonoBehaviour
         monster1Health--;
 
         spriteRenderer.material.color = Color.red;
-        yield return new WaitForSecondsRealtime(0.05f);//수정필요
+        yield return new WaitForSecondsRealtime(0.01f);//수정필요
         spriteRenderer.material.color = Color.white;
     }
 }
