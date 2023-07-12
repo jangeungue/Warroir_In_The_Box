@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPos: {fileID: 965809796}
+  spriteRenderer: {fileID: 247164311}
 --- !u!212 &247164311
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -434,7 +435,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 19
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -62689,6 +62690,8 @@ GameObject:
   - component: {fileID: 1193062511}
   - component: {fileID: 1193062514}
   - component: {fileID: 1193062516}
+  - component: {fileID: 1193062517}
+  - component: {fileID: 1193062518}
   - component: {fileID: 1193062508}
   - component: {fileID: 1193062515}
   - component: {fileID: 1193062512}
@@ -62780,10 +62783,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50042c77281ad604c87ddcf867e0fc55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputVec: {x: 0, y: 0}
-  speed: 7
   rigid: {fileID: 1193062512}
   playerAnimation: {fileID: 1193062514}
+  inputVec: {x: 0, y: 0}
+  playerSpeed: 7
 --- !u!50 &1193062512
 Rigidbody2D:
   serializedVersion: 4
@@ -62902,7 +62905,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f393a78e72c3644f857193603ceb07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1193062508}
   playerHealth: 5
+--- !u!114 &1193062517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193062507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf9094527d7b8946a7d05e31a9eb834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCont: {fileID: 1193062511}
+--- !u!114 &1193062518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193062507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d44d4ddbdc27aca4d8e58ca64e167d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 1193062512}
+  dashTime: 0.1
+  maxDashTime: 0.1
+  plPos: {fileID: 1193062509}
 --- !u!1 &1480774448
 GameObject:
   m_ObjectHideFlags: 0
