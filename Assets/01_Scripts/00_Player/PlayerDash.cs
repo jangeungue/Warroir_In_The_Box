@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
-    PlayerCont plCont;
+    PlayerCont playerCont;
     [SerializeField]
     Rigidbody2D rigid;
+    [SerializeField]
+    Ghost ghost;
     // Start is called before the first frame update
     void Start()
     {
-        plCont = GetComponent<PlayerCont>();
+        playerCont = GetComponent<PlayerCont>();
         StartCoroutine(Coroutine_Update());
 
     }
@@ -20,56 +23,9 @@ public class PlayerDash : MonoBehaviour
     float dashTime;
     [SerializeField]
     float maxDashTime;
-    /*
-    public void PlayerDashStart()
-    {
-        tmpdir = playerCont.inputVec.normalized * playerCont.playerSpeed * Time.fixedDeltaTime;
-        transform.Translate(tmpdir * Time.deltaTime);
-        //this.ghost.makeGhost = true;
-        if (this.tmpdir == Vector2.zero) this.tmpdir = Vector2.right;
-
-        if (this.dashTime >= this.maxDashTime)
-        {
-            this.dashTime = 0;
-            this.isDash = true;
-            //this.ghost.makeGhost = false;
-        }
-
-    }
-    public void PlayerDashing()
-    {
-        //�÷��̾� �뽬��
-        if (isDash)
-        {
-            this.rigid.velocity = tmpdir.normalized * (playerCont.playerSpeed * 5) * Time.deltaTime;
-        }
-        if (dashTime < maxDashTime)
-        {
-            this.dashTime += Time.deltaTime;
-        }
-        else
-        {
-            this.isDash = false;
-        }
-    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
-        {
-            PlayerDashStart();
-        }
-
-    }
-
-    void FixedUpdate()
-    {
-        PlayerDashing(); 
-    }
-    */
-    // Update is called once per frame
-    void Update()
-    {
-        if (dashTime >= maxDashTime)//ó�� �Է¸� �޴� if��
+        if (dashTime >= maxDashTime)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
                 Excute();
@@ -77,12 +33,24 @@ public class PlayerDash : MonoBehaviour
     }
     void Excute()
     {
+        
         dashTime = 0;
-        moveVector = plCont.inputVec.normalized * 4;//����?�����ʸ� ��
-        print(plCont.inputVec);
+        //moveVector = playerCont.inputVec * 4;
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            moveVector = playerCont.inputVec * -4;
+        }
+        else
+        {
+            moveVector = playerCont.inputVec * 4;
+        }
+
+        print(playerCont.inputVec);
     }
     [SerializeField]
     Transform plPos;
+    [SerializeField]
     Vector2 moveVector;
     IEnumerator Coroutine_Update()
     {
@@ -91,11 +59,16 @@ public class PlayerDash : MonoBehaviour
             if (dashTime < maxDashTime)
             {
                 dashTime += Time.deltaTime;
-                transform.Translate(moveVector * Time.deltaTime * plCont.playerSpeed);
+                transform.Translate(moveVector * Time.deltaTime * 10);
+                ghost.makeGhost = true;
+            }
+            else
+            {
+                ghost.makeGhost = false;
             }
 
             yield return null;
         }
 
     }
-}
+}   

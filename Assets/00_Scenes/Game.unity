@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247164308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.3, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62702,10 +62702,11 @@ GameObject:
   - component: {fileID: 1193062516}
   - component: {fileID: 1193062518}
   - component: {fileID: 1193062517}
+  - component: {fileID: 1193062521}
   - component: {fileID: 1193062508}
-  - component: {fileID: 1193062515}
+  - component: {fileID: 1193062520}
   - component: {fileID: 1193062512}
-  - component: {fileID: 1193062513}
+  - component: {fileID: 1193062519}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -62754,7 +62755,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300026, guid: e62e944fb09cc8240949f8681ab627fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d1bf4726032a4242a071552b8537d67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -62824,27 +62825,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &1193062513
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193062507}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b9bf0fb42b8a24349849b46a93d37cc9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1193062514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62857,8 +62837,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d11acadfc4d254dbe85a82e143d4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 1193062513}
---- !u!61 &1193062515
+  anim: {fileID: 1193062519}
+--- !u!114 &1193062516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193062507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f393a78e72c3644f857193603ceb07c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 5
+--- !u!114 &1193062517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193062507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d44d4ddbdc27aca4d8e58ca64e167d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 1193062512}
+  ghost: {fileID: 1193062521}
+  dashTime: 0.1
+  maxDashTime: 0.1
+  plPos: {fileID: 1193062509}
+  moveVector: {x: 0, y: 0}
+--- !u!114 &1193062518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193062507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf9094527d7b8946a7d05e31a9eb834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCont: {fileID: 1193062511}
+--- !u!95 &1193062519
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193062507}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a55955a864689049a9536186a35bd3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &1193062520
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62890,20 +62935,20 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.23276234, y: -0.29095268}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3, y: 1.8}
+    oldSize: {x: 3.9363637, y: 5.2454543}
     newSize: {x: 1.3, y: 1.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3, y: 1.7}
+  m_Size: {x: 1.6034265, y: 3.3491435}
   m_EdgeRadius: 0
---- !u!114 &1193062516
+--- !u!114 &1193062521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62912,39 +62957,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1193062507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f393a78e72c3644f857193603ceb07c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7dd1fdb7f5137f247974ad458d21ce12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 5
---- !u!114 &1193062517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193062507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d44d4ddbdc27aca4d8e58ca64e167d82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigid: {fileID: 1193062512}
-  dashTime: 0.1
-  maxDashTime: 0.1
-  plPos: {fileID: 1193062509}
---- !u!114 &1193062518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193062507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cf9094527d7b8946a7d05e31a9eb834, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCont: {fileID: 1193062511}
+  ghostDelay: 0.001
+  ghost: {fileID: 806814330793106832, guid: 1deedb7fca7c406489cdc5139de69e25, type: 3}
+  makeGhost: 0
 --- !u!114 &1288401193
 MonoBehaviour:
   m_ObjectHideFlags: 0
