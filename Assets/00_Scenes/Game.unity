@@ -66447,6 +66447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueSlim
       objectReference: {fileID: 0}
+    - target: {fileID: 8537224297979254163, guid: be757f23985417748b2b7fdbe61fefac, type: 3}
+      propertyPath: monster1Health
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
