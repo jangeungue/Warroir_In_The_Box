@@ -5,6 +5,8 @@ using UnityEngine;
 public class MonsterTakeDamage : MonoBehaviour
 {
     [SerializeField]
+    Animator animator;
+    [SerializeField]
     SpriteRenderer spriteRenderer;
     [SerializeField]
     float monster1Health = 100;   
@@ -19,8 +21,11 @@ public class MonsterTakeDamage : MonoBehaviour
     {
         monster1Health--;
 
-        spriteRenderer.material.color = Color.red;
-        yield return new WaitForSecondsRealtime(0.01f);//수정필요
-        spriteRenderer.material.color = Color.white;
+        animator.SetTrigger("isBlueSlimHurt");
+
+
+        yield return null;
+        //yield return new WaitForSecondsRealtime(0.05f);//수정필요
+        //animator.SetBool("isBlueSlimHurt", false);
     }
 }
