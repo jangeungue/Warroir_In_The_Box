@@ -35,18 +35,16 @@ public class PlayerDash : MonoBehaviour
     {
         
         dashTime = 0;
-        //moveVector = playerCont.inputVec * 4;
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            moveVector = playerCont.inputVec * -4;
+            moveVector = new Vector2(-4 * playerCont.inputVec.x, playerCont.inputVec.y);
         }
         else
         {
-            moveVector = playerCont.inputVec * 4;
+            moveVector = playerCont.inputVec.normalized * 4;
         }
 
-        print(playerCont.inputVec);
     }
     [SerializeField]
     Transform plPos;

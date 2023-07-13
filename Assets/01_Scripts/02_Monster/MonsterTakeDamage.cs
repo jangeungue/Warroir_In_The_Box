@@ -5,9 +5,13 @@ using UnityEngine;
 public class MonsterTakeDamage : MonoBehaviour
 {
     [SerializeField]
-    Animator animator;
+    Animator anim;
     [SerializeField]
     SpriteRenderer spriteRenderer;
+    [SerializeField]
+    CapsuleCollider2D capsuleCollider2D;
+
+
     [SerializeField]
     float monster1Health;//30
     void OnCollisionEnter2D(Collision2D collision)
@@ -21,16 +25,16 @@ public class MonsterTakeDamage : MonoBehaviour
     IEnumerator TakeDamage(float count)
     {
         monster1Health--;
-
-        animator.SetTrigger("isMonsterHurt");
+        capsuleCollider2D.size = new Vector2(10, 10);
+        anim.SetTrigger("isMonsterHurt");
 
         if (monster1Health <= 0)
         {
-            animator.SetTrigger("isMonsterDeath");
-
+            anim.SetTrigger("isMonsterDeath");
+            capsuleCollider2D.enabled = false;
 
             yield return new WaitForSeconds(1f);//수정필요
-            Destroy(gameObject);
+            Destroy(gameObject);//수정필요
         }
     }   
 }

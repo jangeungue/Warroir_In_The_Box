@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class MonsterAtk : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    Animator anim;
 
-    // Update is called once per frame
+
+    [SerializeField]
+    bool isAtkStartPlayer;
+    [SerializeField]
+    Vector3 target;
+
     void Update()
     {
-        
+        if (isAtkStartPlayer)
+        {
+            target =  GameObject.FindGameObjectWithTag("Player").transform.position;
+            Vector3 direction = target - transform.position;
+            transform.Translate(direction * Time.deltaTime);
+
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            anim.SetBool("isMonsterJump", true);
+            isAtkStartPlayer = true;            
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isAtkStartPlayer = false;
+            anim.SetBool("isMonsterJump", false);
+            
+        }
     }
 }
