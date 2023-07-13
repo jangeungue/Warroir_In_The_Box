@@ -11,15 +11,17 @@ public class Bullet1 : MonoBehaviour
     [SerializeField]
     Animator anim;
     //몇 초후 파괴
-    [SerializeField]
-    float b1WasTimer = 0f;
-    float b1WasShootTimer = 5f;
+    //[SerializeField]
+    //float b1WasTimer = 0f;
+    //float b1WasShootTimer = 5f;
     [SerializeField]
     bool stop;
     void Update()
     {
         if (!stop)
+        {
             transform.Translate(Vector2.right * 50 * Time.deltaTime);
+        }
 
         //if (b1WasTimer < b1WasShootTimer)
         //{
@@ -43,7 +45,7 @@ public class Bullet1 : MonoBehaviour
         stop = true;
         anim.SetTrigger("isHit");
         //애니메이션이 다시 돌아와야 하는데 스프라이트 없고 시간으로 애매하게 처리 수정필요
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.45f);
         stop = false;
         Bullet1Destroy();
         
