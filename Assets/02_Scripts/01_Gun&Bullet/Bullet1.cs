@@ -45,7 +45,7 @@ public class Bullet1 : MonoBehaviour
         stop = true;
         anim.SetTrigger("isHit");
         //애니메이션이 다시 돌아와야 하는데 스프라이트 없고 시간으로 애매하게 처리 수정필요
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(1);//그냥 시간 늘리고 컴포넌트 끄기?
         stop = false;
         Bullet1Destroy();
         
