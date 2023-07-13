@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
   - Monster1
   - Bullet1
+  - Wall1
+  - Weapon
   layers:
   - Default
   - TransparentFX
