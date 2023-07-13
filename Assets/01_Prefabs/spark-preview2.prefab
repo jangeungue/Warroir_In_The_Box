@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4948333898897107298}
   - component: {fileID: -1171489344941703019}
   - component: {fileID: 5419408561102955762}
+  - component: {fileID: 2717078030035639076}
   m_Layer: 0
   m_Name: spark-preview2
   m_TagString: Bullet1
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: -1171489344941703019}
+  anim: {fileID: 2717078030035639076}
   b1WasTimer: 0
 --- !u!212 &4948333898897107298
 SpriteRenderer:
@@ -163,3 +165,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.315
+--- !u!95 &2717078030035639076
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625619840553202318}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 931958b00d8884b979b54bcca9c5e5d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

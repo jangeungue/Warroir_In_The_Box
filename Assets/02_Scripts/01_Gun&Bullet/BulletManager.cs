@@ -12,7 +12,7 @@ public class BulletManager : Singleton<BulletManager>
     void Start()
     {
         //Bullet1
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 30; i++)
         {
             GameObject b_object = Instantiate(Bullet1Prefab, Vector3.zero, Quaternion.identity);
             Bullet_queue.Enqueue(b_object);

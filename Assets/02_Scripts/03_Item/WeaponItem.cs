@@ -15,7 +15,7 @@ public class WeaponItem : MonoBehaviour
         if (isWeapon1 && Input.GetKeyDown(KeyCode.E))
         {
             Weapons[0].SetActive(true);
-            //Destroy(collision.gameObject);//수정필요
+            //Destroy();//수정필요
         }
     }
     void OnTriggerEnter2D(Collider2D collision)
