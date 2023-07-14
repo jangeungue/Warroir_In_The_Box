@@ -8,6 +8,7 @@ TagManager:
   - Bullet1
   - Wall1
   - Weapon
+  - ChangeGravity
   layers:
   - Default
   - TransparentFX

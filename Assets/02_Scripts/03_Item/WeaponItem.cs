@@ -12,10 +12,14 @@ public class WeaponItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isWeapon1 && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Weapons[0].SetActive(true);
-            //Destroy();//수정필요
+            if (isWeapon1)
+            {
+                //다른 총 저장
+                Weapons[0].SetActive(true);//수정필요
+            }
+            
         }
     }
     void OnTriggerEnter2D(Collider2D collision)
