@@ -8,14 +8,15 @@ public class BulletPos : Singleton<BulletPos>
     [SerializeField]
     ShootEffect shootEffect;
     [SerializeField]
-    GameObject shoot;
+    GameObject effect;
     public void ShootBullet1(Transform bulletRotate)
     {
         GameObject BulletObj = BulletManager.Instance.Bullet1Get();//옵젝풀매니저의 총알 객체 생성
         BulletObj.transform.position = bulletRotate.position;
         BulletObj.transform.rotation = bulletRotate.rotation;
 
-        shoot.SetActive(true);
+        //총알 발사 애니메이션 호출
+        effect.SetActive(true);
         shootEffect.Shoot();
     }
 }

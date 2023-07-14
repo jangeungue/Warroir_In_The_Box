@@ -8,7 +8,7 @@ public class BulletTypeClass : MonoBehaviour
 
     public enum BulletType
     {
-        Bullet1
+        KgunBullet1
 
 
 

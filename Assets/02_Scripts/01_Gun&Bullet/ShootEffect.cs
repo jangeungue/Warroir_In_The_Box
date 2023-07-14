@@ -8,6 +8,7 @@ public class ShootEffect : MonoBehaviour
     [SerializeField]
     Animator anim;
 
+    //발사 애니메이션
     [SerializeField]
     float time;
     float timer = 0.1f;

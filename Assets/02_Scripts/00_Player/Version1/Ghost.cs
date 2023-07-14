@@ -17,10 +17,12 @@ public class Ghost : MonoBehaviour
 
     void Start()
     {
+        //고스트 시간 초기화
         ghostingTime = ghosting;
     }
     void Update()
     {
+        //고스트중
         if (makeGhost && ghostingTime > 0)
         {
             ghostingTime -= Time.deltaTime;
@@ -28,7 +30,8 @@ public class Ghost : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (makeGhost  && ghostingTime <= 0)//고스트중
+        //고스트 생성
+        if (makeGhost  && ghostingTime <= 0)
         {
             GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
             Sprite currentSprite = GetComponent<SpriteRenderer>().sprite;
@@ -39,10 +42,13 @@ public class Ghost : MonoBehaviour
         }
 
     }
+
+    //잔상 생성 가능
     public void GhostMake()
     {
         makeGhost = true;
     }
+    //잔상 생성 불가능
     public void DoNotGhostMake()
     {
         makeGhost = false;

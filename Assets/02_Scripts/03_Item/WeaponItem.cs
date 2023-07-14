@@ -12,6 +12,12 @@ public class WeaponItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetWeapon();
+        
+    }
+    //총 아이템 얻기
+    void GetWeapon( )
+    {
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (isWeapon1)
@@ -19,16 +25,18 @@ public class WeaponItem : MonoBehaviour
                 //다른 총 저장
                 Weapons[0].SetActive(true);//수정필요
             }
-            
+
         }
     }
+    //총 얻기 가능
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Weapon"))
-        {            
+        {
             isWeapon1 = true;            
         }
     }
+    //총 얻기 불가능
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Weapon"))

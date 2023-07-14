@@ -34,22 +34,17 @@ public class GunClass : MonoBehaviour
         BulletShoot();
         
     }
-    [SerializeField]
-    GunType gunType;
-    [SerializeField]
-    BulletType bulletType;
-
 
     GunType state = GunType.Kgun;
 
-
     void BulletShoot()
     {
+        //발사 쿨타임 시간 재기
         if (b1Timer < b1ShootTimer)
         {
             b1Timer += Time.deltaTime;
         }
-        
+        //좌클 & 발사 쿨타임
         if (Input.GetMouseButton(0) && b1Timer >= b1ShootTimer)
         {
             state = GunType.Kgun;
@@ -59,19 +54,20 @@ public class GunClass : MonoBehaviour
             }
 
 
-
+            //초기화
             b1Timer = 0f;
         }
         
     }
+    //총이 마우스포지션 바라보기
     void LookAtMousePos()
     {
         target = transform.position;
-        // Convert the mouse position from screen coordinates to world coordinates
+        // 카메라의 마우스포인터 받기
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Calculate the angle between the mouse position and the target position   
+        // target에서 mouse까지의 라디안 값을 계산하고, Mathf.Rad2Deg를 사용하여 해당 값을 각도로 변환
         angle = Mathf.Atan2(mouse.y - target.y, mouse.x - target.x) * Mathf.Rad2Deg;
-        // Set the rotation of the current object to the calculated angle
+        // 현재 객체를 해당 각도 angle만큼 회전
         this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         //좌우 반전

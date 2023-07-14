@@ -27,10 +27,12 @@ public class PlayerCont : MonoBehaviour//벡터입력으로 움직임
         rigid.MovePosition(rigid.position + nextVec);
     }
 
+    //구르기
     public void Roll()
     {
         playerSpeed = 10;
     }
+    //구르지 않기
     public void NotRoll()
     {
         playerSpeed = 7;
