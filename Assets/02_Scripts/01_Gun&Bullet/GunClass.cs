@@ -8,7 +8,8 @@ using static GunTypeClass;
 
 public class GunClass : MonoBehaviour
 {
-    
+    [SerializeField]
+    WeaponCurrent weaponcurrent;
     
 
 
@@ -35,8 +36,7 @@ public class GunClass : MonoBehaviour
         
     }
 
-    GunType state = GunType.Kgun;
-
+    public GunType CurrentGunType { get; set; }
     void BulletShoot()
     {
         //발사 쿨타임 시간 재기
@@ -47,10 +47,10 @@ public class GunClass : MonoBehaviour
         //좌클 & 발사 쿨타임
         if (Input.GetMouseButton(0) && b1Timer >= b1ShootTimer)
         {
-            state = GunType.Kgun;
-            if (state == GunType.Kgun)
+            if (CurrentGunType == GunType.Kgun && isWeapon)
             {
-                BulletPos.Instance.ShootBullet1(bulletPos[0].transform);
+               BulletPos.Instance.ShootBullet1(bulletPos[0].transform);
+
             }
 
 
@@ -59,6 +59,13 @@ public class GunClass : MonoBehaviour
         }
         
     }
+    bool isWeapon;
+    public void IsWeapon()
+    {
+        isWeapon = true;
+    }
+
+
     //총이 마우스포지션 바라보기
     void LookAtMousePos()
     {

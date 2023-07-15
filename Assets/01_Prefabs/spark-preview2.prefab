@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1171489344941703019}
   - component: {fileID: 5419408561102955762}
   - component: {fileID: 2717078030035639076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spark-preview2
   m_TagString: Bullet1
   m_Icon: {fileID: 0}
@@ -50,7 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid: {fileID: -1171489344941703019}
   anim: {fileID: 2717078030035639076}
-  b1WasTimer: 0
   stop: 0
 --- !u!212 &4948333898897107298
 SpriteRenderer:

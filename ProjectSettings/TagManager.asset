@@ -8,15 +8,15 @@ TagManager:
   - Bullet1
   - Wall1
   - Weapon
-  - ChangeGravity
+  - ChangePlayerForm
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Bullet
   - 
   - 
   - 
