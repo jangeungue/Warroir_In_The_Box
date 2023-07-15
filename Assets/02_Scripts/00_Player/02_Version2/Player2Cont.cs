@@ -10,18 +10,15 @@ public class Player2Cont : MonoBehaviour
     Animator anim;//애니메이터
 
     [SerializeField]
-    float playerSpeed = 5;//플레이어 기본 스피드 5
+    float playerSpeed;//플레이어 기본 스피드 6
     [SerializeField]
-    float maxSpeed = 6;//최대 스피드 6 
+    float maxSpeed;//최대 스피드 8
     [SerializeField]
-    float minSpeed = 5;//최소 스피드 5
+    float minSpeed;//최소 스피드 6
     int playerSpeedUp = 0;//6프레임
     int playerspeedDown = 0;//3프레임
 
     /*
-    [SerializeField]
-    PlayerHealth playerHealth;
-
     public bool isStopAllMovement;//모두멈춤
     */
     
@@ -53,6 +50,7 @@ public class Player2Cont : MonoBehaviour
         }
         else
         {
+            
             playerSpeedUp = 0;
             if (playerspeedDown <= 3f)
             {
@@ -64,6 +62,7 @@ public class Player2Cont : MonoBehaviour
                 playerSpeed = minSpeed;
             }
         }
+        
     }
 
     void SetAnimation()//애니메이션
@@ -81,7 +80,7 @@ public class Player2Cont : MonoBehaviour
 
     void Update()//점프,키 입력,애니메이션
     {
-        PlayerMovePlus();
+        //PlayerMovePlus();
         SetAnimation();
     }
     void FixedUpdate()//물리,좌우이동,대쉬
@@ -90,6 +89,7 @@ public class Player2Cont : MonoBehaviour
         Move();//좌우이동                     
         
     }
+    /*
     public float moveSpeedPlus;
     public void PlayerMovePlus()
     {
@@ -98,5 +98,5 @@ public class Player2Cont : MonoBehaviour
         else
             maxSpeed = 6f;
     }
-
+    */
 }

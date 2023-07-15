@@ -10,7 +10,7 @@ public class PlayerAnimation : MonoBehaviour//좌우입력으로 반응
     {
         PlayerAnim();
     }
-    public void PlayerAnim()
+    void PlayerAnim()
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");

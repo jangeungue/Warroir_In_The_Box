@@ -28,7 +28,7 @@ public class PlayerDash : MonoBehaviour
     void Start()
     {
         playerCont = GetComponent<PlayerCont>();
-        StartCoroutine(Coroutine_Update());
+        //StartCoroutine(Coroutine_Update());
 
     }
     
@@ -41,6 +41,16 @@ public class PlayerDash : MonoBehaviour
         {            
             Excute();
 
+        }
+        if (dashingTime < maxDashingTime)
+        {
+            dashingTime += Time.deltaTime;
+            transform.Translate(moveVector * Time.deltaTime * 10);
+            ghost.GhostMake();
+        }
+        else
+        {
+            ghost.DoNotGhostMake();
         }
     }
     void Excute()
@@ -59,23 +69,4 @@ public class PlayerDash : MonoBehaviour
 
     }
     
-    IEnumerator Coroutine_Update()
-    {
-        while (true)
-        {
-            if (dashingTime < maxDashingTime)
-            {
-                dashingTime += Time.deltaTime;
-                transform.Translate(moveVector * Time.deltaTime * 10);
-                ghost.GhostMake(); 
-            }
-            else
-            {
-                ghost.DoNotGhostMake();
-            }
-
-            yield return null;
-        }
-
-    }
 }   

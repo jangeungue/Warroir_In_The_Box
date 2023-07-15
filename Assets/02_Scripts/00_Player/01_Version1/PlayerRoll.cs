@@ -8,7 +8,11 @@ public class PlayerRoll : MonoBehaviour
     PlayerCont playerCont;
     float rolling;
     float rollTimer = 1;
-    // Update is called once per frame
+
+    void Start()
+    {
+        rolling = rollTimer;
+    }
     void Update()
     {
         if (rolling < rollTimer)
@@ -20,7 +24,7 @@ public class PlayerRoll : MonoBehaviour
         {
             playerCont.NotRoll();
         }
-        if (Input.GetKeyDown(KeyCode.Space) && rolling > rollTimer)
+        if (Input.GetKeyDown(KeyCode.Space) && rolling >= rollTimer)
         {
             rolling = 0;
             
