@@ -16,12 +16,15 @@ public class PlayerCont : MonoBehaviour//벡터입력으로 움직임
     int rollSpeed;
     [SerializeField]
     int NotrollSpeed;
-    
+    [SerializeField]
+    bool isDash;
     void Update()
     {
-        inputVec.x = Input.GetAxisRaw("Horizontal");
-        inputVec.y = Input.GetAxisRaw("Vertical");
-        
+        if (!isDash)
+        {
+            inputVec.x = Input.GetAxisRaw("Horizontal");
+            inputVec.y = Input.GetAxisRaw("Vertical");
+        }
     }
     
     void FixedUpdate()
@@ -39,6 +42,16 @@ public class PlayerCont : MonoBehaviour//벡터입력으로 움직임
     public void NotRoll()
     {
         playerSpeed = NotrollSpeed;
+    }
+
+    //뭔가 잘 안됨..
+    public void IsDash()
+    {
+        isDash = true;
+    }
+    public void IsNotDash()
+    {
+        isDash = false;
     }
 }
 

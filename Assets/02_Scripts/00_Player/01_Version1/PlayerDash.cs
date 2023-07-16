@@ -6,12 +6,15 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+    [SerializeField]
     PlayerCont playerCont;
     [SerializeField]
     Rigidbody2D rigid;
     [SerializeField]
     Ghost ghost;
 
+    [SerializeField]
+    int dashPower;
     [SerializeField]
     float dashingTime = 0.1f;
     [SerializeField]
@@ -25,31 +28,37 @@ public class PlayerDash : MonoBehaviour
     Transform plPos;
     [SerializeField]
     Vector2 moveVector;
-    void Start()
-    {
-        playerCont = GetComponent<PlayerCont>();
-        //StartCoroutine(Coroutine_Update());
 
-    }
-    
-    
+
     void Update()
     {
         if (dashCool < dashCoolTime)
             dashCool += Time.deltaTime;
         if (dashCool >= dashCoolTime && Input.GetKeyDown(KeyCode.LeftShift))
-        {            
+        {
             Excute();
 
         }
         if (dashingTime < maxDashingTime)
         {
             dashingTime += Time.deltaTime;
-            transform.Translate(moveVector * Time.deltaTime * 10);
+            if (moveVector != Vector2.zero)
+            {
+                transform.Translate(moveVector * Time.deltaTime * dashPower);
+            }
+            else
+            {
+                if (transform.rotation == Quaternion.Euler(0, -180, 0))
+                    transform.Translate(Vector2.right * Time.deltaTime * dashPower * 5);
+                else if (transform.rotation == Quaternion.Euler(0, 0, 0))
+                    transform.Translate(Vector2.right * Time.deltaTime * dashPower * 5);
+            }
+            playerCont.IsDash();
             ghost.GhostMake();
         }
         else
         {
+            playerCont.IsNotDash();
             ghost.DoNotGhostMake();
         }
     }
@@ -60,13 +69,13 @@ public class PlayerDash : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            moveVector = new Vector2(-4 * playerCont.inputVec.x, playerCont.inputVec.y);
+            moveVector = new Vector2(playerCont.inputVec.x * -5, playerCont.inputVec.normalized.y * 5);
         }
         else
         {
-            moveVector = playerCont.inputVec.normalized * 4;
+            moveVector = new Vector2(playerCont.inputVec.x * 5, playerCont.inputVec.normalized.y * 5);
         }
 
     }
-    
-}   
+
+}

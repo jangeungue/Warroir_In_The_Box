@@ -18,16 +18,30 @@ public class Player2Dash : MonoBehaviour
     void Update()
 
     {
-        if (useTimer < 0.3f && canUseSkill)
+        if (useTimer <= 0.3f && canUseSkill)
         {           
             var nextPlayerPos = Vector3.Lerp(transform.position, dashVector, dashSpeed / 100);
             nextPlayerPos.y = transform.position.y;
 
             transform.position = nextPlayerPos;
         }
+        else
+        {
+            canUseSkill = false;
+        }
+        if (useTimer < 0.3f)
+        {
+            useTimer += Time.deltaTime;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            UseDash();
+        }
     }
     void UseDash()
     {
+        canUseSkill = true;
+        useTimer = 0f;
         if (transform.rotation.y == 0)
         {
             dashDir = transform.localScale.x;
@@ -38,5 +52,6 @@ public class Player2Dash : MonoBehaviour
             dashDir = -transform.localScale.x;
             dashVector = new Vector2(transform.position.x + dashDir * dashSize, transform.position.y);
         }
+        
     }
 }

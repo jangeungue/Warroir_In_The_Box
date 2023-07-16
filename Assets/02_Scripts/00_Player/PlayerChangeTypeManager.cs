@@ -20,6 +20,8 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
     Player2Cont player2Cont;
     [SerializeField]
     Player2Jump player2Jump;
+    [SerializeField]
+    Player2Dash Player2Dash;
     public PlayerType CurrentPlayerType { get; set; }
     void Start()
     {
@@ -63,6 +65,7 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
         //Player2
         player2Cont.enabled = false;
         player2Jump.enabled = false;
+        Player2Dash.enabled = false;
     }
     void SecondPlayerForm()
     {
@@ -71,6 +74,7 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
         //Player2
         player2Cont.enabled = true;
         player2Jump.enabled = true;
+        Player2Dash.enabled = true;
 
         //Player1
         playerCont.enabled = false;
