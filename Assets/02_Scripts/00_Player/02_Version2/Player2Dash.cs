@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Player2Dash : MonoBehaviour
 {
+    [SerializeField]
+    Ghost ghost;
+
     float dashDir;//대쉬방향
     Vector2 dashVector;//대쉬할 거리
+
     [SerializeField]
     float dashSpeed = 5f;//대쉬 스피드 5
     [SerializeField]
@@ -24,10 +28,12 @@ public class Player2Dash : MonoBehaviour
             nextPlayerPos.y = transform.position.y;
 
             transform.position = nextPlayerPos;
+            ghost.GhostMake();
         }
         else
         {
             canUseSkill = false;
+            ghost.GhostMakeDoNot();
         }
         if (useTimer < 0.3f)
         {

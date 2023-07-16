@@ -49,7 +49,7 @@ public class Ghost : MonoBehaviour
         makeGhost = true;
     }
     //잔상 생성 불가능
-    public void DoNotGhostMake()
+    public void GhostMakeDoNot()
     {
         makeGhost = false;
     }

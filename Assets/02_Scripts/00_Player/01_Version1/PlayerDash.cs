@@ -25,10 +25,7 @@ public class PlayerDash : MonoBehaviour
     float dashCoolTime;//쿨타임
 
     [SerializeField]
-    Transform plPos;
-    [SerializeField]
     Vector2 moveVector;
-
 
     void Update()
     {
@@ -59,7 +56,7 @@ public class PlayerDash : MonoBehaviour
         else
         {
             playerCont.IsNotDash();
-            ghost.DoNotGhostMake();
+            ghost.GhostMakeDoNot();
         }
     }
     void Excute()
