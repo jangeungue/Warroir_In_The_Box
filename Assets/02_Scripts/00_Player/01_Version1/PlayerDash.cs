@@ -9,8 +9,6 @@ public class PlayerDash : MonoBehaviour
     [SerializeField]
     PlayerCont playerCont;
     [SerializeField]
-    Rigidbody2D rigid;
-    [SerializeField]
     Ghost ghost;
 
     [SerializeField]

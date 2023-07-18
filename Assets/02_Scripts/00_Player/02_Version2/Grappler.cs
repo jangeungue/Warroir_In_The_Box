@@ -47,7 +47,7 @@ public class Grappler : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            rigid.velocity = Vector2.zero;
+            //rigid.velocity = Vector2.zero;
             playerChangeTypeManager.GrapplingFinish();
             distanceJoint2D.enabled = false;
             lineRenderer.enabled = false;

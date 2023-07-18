@@ -74,7 +74,6 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
         player2Dash.enabled = false;
 
         grappler.SetActive(false);
-        //distanceJoint2D.enabled = false;
     }
     void SecondPlayerForm()
     {
@@ -86,7 +85,6 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
         player2Dash.enabled = true;
 
         grappler.SetActive(true);
-        //distanceJoint2D.enabled = true;
 
         //Player1
         playerCont.enabled = false;

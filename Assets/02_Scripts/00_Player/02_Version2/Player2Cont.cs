@@ -5,8 +5,6 @@ using UnityEngine;
 public class Player2Cont : MonoBehaviour
 {
     [SerializeField]
-    Rigidbody2D rigid;//좌우 이동은 현재 리지드 안 쓰임 점프만
-    [SerializeField]
     Animator anim;//애니메이터
 
     [SerializeField]
