@@ -9,6 +9,7 @@ TagManager:
   - Wall1
   - Weapon
   - ChangePlayerForm
+  - Roping
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Bullet
   - 
   - 
-  - Point
+  - 
   - 
   - 
   - 

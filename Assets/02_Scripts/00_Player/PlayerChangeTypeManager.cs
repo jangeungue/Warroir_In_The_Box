@@ -7,6 +7,8 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
 {
     [SerializeField]
     Rigidbody2D rigid;
+    [SerializeField]
+    Ghost ghost;
     //Player1
     [SerializeField]
     PlayerCont playerCont;
@@ -21,7 +23,7 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
     [SerializeField]
     Player2Jump player2Jump;
     [SerializeField]
-    Player2Dash Player2Dash;
+    Player2Dash player2Dash;
     [SerializeField]
     GameObject grappler;
     [SerializeField]
@@ -69,10 +71,10 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
         //Player2
         player2Cont.enabled = false;
         player2Jump.enabled = false;
-        Player2Dash.enabled = false;
+        player2Dash.enabled = false;
 
         grappler.SetActive(false);
-        distanceJoint2D.enabled = false;
+        //distanceJoint2D.enabled = false;
     }
     void SecondPlayerForm()
     {
@@ -81,10 +83,10 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
         //Player2
         player2Cont.enabled = true;
         player2Jump.enabled = true;
-        Player2Dash.enabled = true;
+        player2Dash.enabled = true;
 
         grappler.SetActive(true);
-        distanceJoint2D.enabled = true;
+        //distanceJoint2D.enabled = true;
 
         //Player1
         playerCont.enabled = false;
@@ -98,15 +100,15 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
         //Player2
         player2Cont.enabled = false;
         player2Jump.enabled = false;
-        Player2Dash.enabled = false;
-
+        //player2Dash.enabled= false;
+        ghost.enabled = false;
     }
     public void GrapplingFinish()
     {
         //Player2
         player2Cont.enabled = true;
         player2Jump.enabled = true;
-        Player2Dash.enabled = true;
-
+        //player2Dash.enabled = true;
+        ghost.enabled = true;
     }
 }
