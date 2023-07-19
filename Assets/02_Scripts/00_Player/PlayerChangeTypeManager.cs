@@ -73,7 +73,7 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
         player2Jump.enabled = false;
         player2Dash.enabled = false;
 
-        grappler.SetActive(false);
+        //grappler.SetActive(false);
     }
     void SecondPlayerForm()
     {
@@ -84,7 +84,7 @@ public class PlayerChangeTypeManager : MonoBehaviour//움직임과 게임성 형태 변환
         player2Jump.enabled = true;
         player2Dash.enabled = true;
 
-        grappler.SetActive(true);
+        //grappler.SetActive(true);
 
         //Player1
         playerCont.enabled = false;

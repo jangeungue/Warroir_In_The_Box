@@ -1,5 +1,7 @@
 using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Tutorial_GrapplingGun : MonoBehaviour
 {
@@ -43,7 +45,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
     [Header("No Launch To Point")]
     [SerializeField] private bool autoConfigureDistance = false;
-    [SerializeField] private float targetDistance = 5;//3
+    [SerializeField] private float targetDistance = 7;//7
     [SerializeField] private float targetFrequncy = 1;
 
     [HideInInspector] public Vector2 grapplePoint;
@@ -55,9 +57,9 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         m_springJoint2D.enabled = false;
 
     }
-
     private void Update()
     {
+        LookAtMousePos();
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             SetGrapplePoint();
@@ -123,19 +125,48 @@ public class Tutorial_GrapplingGun : MonoBehaviour
                 if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance)
                 {
                     grapplePoint = _hit.point;
-                    grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
-                    float currentDistance = Vector2.Distance(transform.position, _hit.point);
 
+                    mouse = _hit.point;
+
+                    grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
+
+                    float currentDistance = Vector2.Distance(transform.position, _hit.point);
                     m_springJoint2D.distance = currentDistance;//- 1
+                    
                     //m_springJoint2D.distance = grappleDistanceVector;
                     grappleRope.enabled = true;
                 }
             }
         }
     }
-
-    public void Grapple()
+    [SerializeField]
+    GameObject player;
+    [SerializeField]
+    SpriteRenderer spriteRenderer;
+    float angle;
+    Vector2 target, mouse;
+    //총이 마우스포지션 바라보기
+    void LookAtMousePos()
     {
+        target = player.transform.position;
+
+        // target에서 mouse까지의 라디안 값을 계산하고, Mathf.Rad2Deg를 사용하여 해당 값을 각도로 변환
+        angle = Mathf.Atan2(mouse.y - target.y, mouse.x - target.x) * Mathf.Rad2Deg;
+        // 현재 객체를 해당 각도 angle만큼 회전
+        player.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+
+        //좌우 반전
+        if (angle > 90 || angle < -90)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
+    }
+    public void Grapple()
+    {        
         m_springJoint2D.autoConfigureDistance = false;
         
         if (!launchToPoint && !autoConfigureDistance)

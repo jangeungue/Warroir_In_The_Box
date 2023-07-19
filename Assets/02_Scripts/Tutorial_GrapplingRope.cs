@@ -61,26 +61,26 @@ public class Tutorial_GrapplingRope : MonoBehaviour
     {
         if (!strightLine)
         {
-            print("!strightLine");
-            print(m_lineRenderer.GetPosition(percision - 1).x);
-            print(grapplingGun.grapplePoint.x);
+            //print("!strightLine");
+            //print(m_lineRenderer.GetPosition(percision - 1).x);
+            //print(grapplingGun.grapplePoint.x);
             if (Mathf.Approximately(m_lineRenderer.GetPosition(percision - 1).x, grapplingGun.grapplePoint.x))
             { //미세한 오차 범위 오류 때문에 Mathf.Approximately를 추가함
-                print("true");
+                //print("true");
                 strightLine = true;
             }
             else
             {
-                print("DrawRopeWaves");
+                //print("DrawRopeWaves");
                 DrawRopeWaves();
             }
         }
         else
         {
-            print("else");
+            //print("else");
             if (!isGrappling)
             {
-                print("dd");
+                //print("dd");
                 grapplingGun.Grapple();
                 isGrappling = true;
             }
