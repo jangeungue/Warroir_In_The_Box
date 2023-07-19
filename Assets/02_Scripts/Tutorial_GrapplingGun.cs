@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class Tutorial_GrapplingGun : MonoBehaviour
@@ -123,6 +124,10 @@ public class Tutorial_GrapplingGun : MonoBehaviour
                 {
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
+                    float currentDistance = Vector2.Distance(transform.position, _hit.point);
+
+                    m_springJoint2D.distance = currentDistance;//- 1
+                    //m_springJoint2D.distance = grappleDistanceVector;
                     grappleRope.enabled = true;
                 }
             }
@@ -135,7 +140,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         
         if (!launchToPoint && !autoConfigureDistance)
         {
-            m_springJoint2D.distance = targetDistance;
+            //m_springJoint2D.distance = targetDistance;
             m_springJoint2D.frequency = targetFrequncy;
         }
         if (!launchToPoint)
