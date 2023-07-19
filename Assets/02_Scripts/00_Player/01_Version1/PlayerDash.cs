@@ -31,8 +31,8 @@ public class PlayerDash : MonoBehaviour
             dashCool += Time.deltaTime;
         if (dashCool >= dashCoolTime && Input.GetKeyDown(KeyCode.LeftShift))
         {
+            playerCont.IsDash();
             Excute();
-
         }
         if (dashingTime < maxDashingTime)
         {
@@ -47,8 +47,7 @@ public class PlayerDash : MonoBehaviour
                     transform.Translate(Vector2.right * Time.deltaTime * dashPower * 5);
                 else if (transform.rotation == Quaternion.Euler(0, 0, 0))
                     transform.Translate(Vector2.right * Time.deltaTime * dashPower * 5);
-            }
-            playerCont.IsDash();
+            }            
             ghost.GhostMake();
         }
         else

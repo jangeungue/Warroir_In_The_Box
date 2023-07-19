@@ -44,7 +44,7 @@ public class PlayerCont : MonoBehaviour//벡터입력으로 움직임
         playerSpeed = NotrollSpeed;
     }
 
-    //뭔가 잘 안됨..
+    //뭔가 잘 안됨..대쉬 중간에 키입력X인데
     public void IsDash()
     {
         isDash = true;

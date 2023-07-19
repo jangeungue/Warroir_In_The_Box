@@ -32,7 +32,7 @@ public class Player2Dash : MonoBehaviour
         }
         else
         {
-            canUseSkill = false;
+            canUseSkill = false;           
             ghost.GhostMakeDoNot();
         }
         if (useTimer < 0.3f)
