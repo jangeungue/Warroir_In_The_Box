@@ -58,7 +58,9 @@ public class Tutorial_GrapplingGun : MonoBehaviour
     [SerializeField]
     SpriteRenderer spriteRenderer;
 
-
+    float angle;
+    Vector2 target, mouse;
+    bool isGrapplingLook;
     private void Start()
     {
         grappleRope.enabled = false;
@@ -68,9 +70,9 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
-        {           
+        {
             SetGrapplePoint();
         }
         else if (Input.GetKey(KeyCode.Mouse0))
@@ -103,11 +105,11 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         {
             if (isGrapplingLook)
             {
-                FinshToGrpple();
+                FinshToGrapple();
             }
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
-            m_rigidbody.gravityScale = 1;
+            m_rigidbody.gravityScale = 3; //
         }
         else
         {
@@ -151,7 +153,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
                     float currentDistance = Vector2.Distance(transform.position, _hit.point);
 
                     //float currentDistance = Vector2.Distance(transform.position, _hit.point);
-                    m_springJoint2D.distance = currentDistance;//- 1
+                    m_springJoint2D.distance = currentDistance - 1;//- 1
 
                     //m_springJoint2D.distance = grappleDistanceVector;
                     grappleRope.enabled = true;
@@ -160,9 +162,6 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         }
     }
     
-    float angle;
-    Vector2 target, mouse;
-    bool isGrapplingLook;
     void LookAtMousePos()
     {
         target = player.transform.position;
@@ -171,7 +170,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
         player.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
-  
+
         if (angle > 90 || angle < -90)
         {
             spriteRenderer.flipX = true;
@@ -216,14 +215,26 @@ public class Tutorial_GrapplingGun : MonoBehaviour
                         m_springJoint2D.enabled = true;
                         break;
                     case LaunchType.Transform_Launch:
-                        m_rigidbody.gravityScale = 0;
+                        m_rigidbody.gravityScale = 0; //
                         m_rigidbody.velocity = Vector2.zero;
                         break;
                 }
             }
         }
     }
-    void FinshToGrpple()
+    bool isGround;
+    void Grounded()
+    {
+        isGround = true;
+    }
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+
+        }
+    }
+    void FinshToGrapple()
     {
         player.transform.rotation = Quaternion.Euler(0, 0, 0);//키 땟을 때
     }
