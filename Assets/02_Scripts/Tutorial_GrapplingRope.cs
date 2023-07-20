@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Tutorial_GrapplingRope : MonoBehaviour
 {
@@ -61,25 +61,32 @@ public class Tutorial_GrapplingRope : MonoBehaviour
     {
         if (!strightLine)
         {
+            print("!strightLine");
+            print(m_lineRenderer.GetPosition(percision - 1).x);
+            print(grapplingGun.grapplePoint.x);
             //print("!strightLine");
             //print(m_lineRenderer.GetPosition(percision - 1).x);
             //print(grapplingGun.grapplePoint.x);
             if (Mathf.Approximately(m_lineRenderer.GetPosition(percision - 1).x, grapplingGun.grapplePoint.x))
-            { //¹Ì¼¼ÇÑ ¿ÀÂ÷ ¹üÀ§ ¿À·ù ¶§¹®¿¡ Mathf.Approximately¸¦ Ãß°¡ÇÔ
+            { //ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Mathf.Approximatelyï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½
+                print("true");
                 //print("true");
                 strightLine = true;
             }
             else
             {
+                print("DrawRopeWaves");
                 //print("DrawRopeWaves");
                 DrawRopeWaves();
             }
         }
         else
         {
+            print("else");
             //print("else");
             if (!isGrappling)
             {
+                print("dd");
                 //print("dd");
                 grapplingGun.Grapple();
                 isGrappling = true;
